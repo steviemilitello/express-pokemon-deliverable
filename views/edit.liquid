@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit That Pokemon!</title>
+</head>
+<body>
+    <h1>Edit That Pokemon!</h1>
+    <form action="/pokemon/{{index}}?_method=PUT" method="POST">
+        <input type="text" name="name" value="{{data.name}}" /> 
+        <input type="text" name="type" value="{{data.type | join: ", " }}" /> <br />
+        <p>Stats: </p>
+        <input type="text" name="hp" value="{{data.stats.hp}}" /> 
+         <input type="text" name="attack" value="{{data.stats.attack}}" /> 
+        <input type="text" name="defense" value="{{data.stats.defense}}" />
+        <p><input type="submit" value="Update our Pokemon" /></p>
+        <a href="/pokemon">Go Back</a>
+    </form>
+</body>
+</html>
