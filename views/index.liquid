@@ -14,10 +14,10 @@
                 HP: {{ item.stats.hp }} &nbsp;
                 Attack: {{ item.stats.attack }} &nbsp;
                 Defense: {{ item.stats.defense }} &nbsp; 
-                <p><button onclick="window.location.href='/pokemon/{{ forloop.index0 }}/edit'">EDIT</button>
-                <form action="/{{ forloop.index0 }}?_method=DELETE" method="POST">
+                <p><a href="/pokemon/{{ forloop.index0 }}/edit">Edit</a></p>
+                <form action="/pokemon/{{ forloop.index0 }}?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE" />
-                </form></p>
+                </form>
             {% endfor %}
         <nav>
             <a href="/pokemon/new">Add a New Pokemon</a>
