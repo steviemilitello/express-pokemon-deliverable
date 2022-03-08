@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Gotta Catch 'em All</title>
+    </head>
+    <body>
+        <h1>Pokemon  Page</h1>
+            {% for item in data %}
+                <img src="{{ item.img }}"> <br />
+                Name: <a href="/{{ forloop.index0 }}"></a>{{ item.name }}</a><br />
+                Type: {{ item.type | join: ", "}} <br />
+                Stats:  
+                HP: {{ item.stats.hp }} &nbsp;
+                Attack: {{ item.stats.attack }} &nbsp;
+                Defense: {{ item.stats.defense }} &nbsp; 
+                <p><button onclick="window.location.href='/{{ forloop.index0 }}/edit'">EDIT</button>
+                <form action="/{{ forloop.index0 }}?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE" />
+                </form></p>
+            {% endfor %}
+        <nav>
+            <a href="/new">Add a New Pokemon</a>
+        </nav>
+        <a href="/">Go Back</a>
+    </body>
+</html>
