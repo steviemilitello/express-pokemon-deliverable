@@ -2,23 +2,29 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style.css">
         <title>Gotta Catch 'em All</title>
     </head>
     <body>
-        <h1>Pokemon  Page</h1>
-            {% for item in data limit: 5 %}
+        <h1>Pokedex</h1>
+        <div class="container">
+            {% for item in data limit: 6 %}
+            <div class="pokemon-div">
                 <img src="{{ item.img }}"> <br />
-                Name: <a href="/pokemon/{{ forloop.index0 }}">{{ item.name }}</a><br />
+                Name: <a href="/pokemon/{{ forloop.indexO }}">{{ item.name }}</a><br />
                 Type: {{ item.type | join: ", "}} <br />
                 Stats:  
                 HP: {{ item.stats.hp }} &nbsp;
                 Attack: {{ item.stats.attack }} &nbsp;
                 Defense: {{ item.stats.defense }} &nbsp; 
-                <p><a href="/pokemon/{{ forloop.index0 }}/edit">Edit</a></p>
                 <form action="/pokemon/{{ forloop.index0 }}?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE" />
+                    <a class="btn btn-primary" href="/pokemon/{{ forloop.index0 }}/edit" role="button">Edit</a>
+                    <input class="btn btn-primary" id="index-submit" type="submit" value="Delete" />
                 </form>
+            </div>
             {% endfor %}
+        </div>
         <nav>
             <a href="/pokemon/new">Add a New Pokemon</a>
         </nav>
