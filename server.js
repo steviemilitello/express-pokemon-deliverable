@@ -55,8 +55,6 @@ app.post('/pokemon', (req, res) => {
 /// --- delete route ---------------------------------------------------------------------------------------------
 
 app.delete("/pokemon/:id", (req, res) => {
-    // splice used to modify array and return modifed array
-    // two arguements, second is amount
     pokemon.splice(req.params.id, 1)
     res.redirect("/")
 
@@ -68,9 +66,8 @@ app.get("/pokemon/:id/edit", (req, res) => {
     res.render(
       "edit", 
       {
-        //pass in an object that contains
-        data: pokemon[req.params.id], //the fruit object
-        index: req.params.id, //... and its index in the array
+        data: pokemon[req.params.id],
+        index: req.params.id, 
       }
     )
 

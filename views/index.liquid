@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Pokemon  Page</h1>
-            {% for item in data %}
+            {% for item in data limit: 5 %}
                 <img src="{{ item.img }}"> <br />
                 Name: <a href="/pokemon/{{ forloop.index0 }}">{{ item.name }}</a><br />
                 Type: {{ item.type | join: ", "}} <br />
@@ -22,6 +22,5 @@
         <nav>
             <a href="/pokemon/new">Add a New Pokemon</a>
         </nav>
-        <a href="/">Go Back</a>
     </body>
 </html>
